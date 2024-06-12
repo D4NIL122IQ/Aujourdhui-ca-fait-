@@ -7,23 +7,38 @@
     <title>Document</title>
 </head>
 <body>
+    <header>
+        <H1>Aujourd'hui ça fait ...</H1>
+    </header>
     <div class="container">
-
+        <div class="date">
             <label for="year">Entrez l'annee</label>
             <input type="number" name="year" id="year" min="1970"  placeholder="AAAA" ><br>
+
             <label for="month">Entrez le mois</label>
             <input type="number" name="month" id="month" min="01" max="12" placeholder="MM" ><br>
+
             <label for="day">Entrez le jour</label>
             <input type="number" name="day" id="day" min="01" max="31" placeholder="JJ" ><br>
-            <input type="submit" value="Envoyer">
 
-    </div>
-   
-    <div class="result">
-        <p class="annee"></p>
-        <p class="mois"></p>
-        <p class="jour"></p>
-    </div>
+            <input type="submit" value="Verifier La date">
+        </div>
+            
+        <div class="result">
+            <div class="tt">
+            <p class="annee">0</p>
+            <p>Année</p>
+        </div>
+        <div class="tt">
+            <p class="mois">0</p>
+            <p>Mois</p>
+        </div>
+        <div class="tt">
+            <p class="jour">0</p>
+            <p>Jours</p>
+        </div>
+        </div>
+    </div> 
     
     <script src="function.js" type="module"></script>
 </body>

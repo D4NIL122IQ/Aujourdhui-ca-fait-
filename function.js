@@ -7,18 +7,18 @@ const todayDate = new Date();
 // verification de coherance 
 function verification() {
     if (year.value == ""|| month.value == "" || day.value == "" || year.value > todayDate.getFullYear()) {
-        return false;
+        document.querySelector(".result").innerHTML = "Champs vide Ou année sup a l'année actuelle"
     } else { 
         if( (year.value == todayDate.getFullYear() && month.value > todayDate.getMonth() +1 ) 
             || (year.value == todayDate.getFullYear() && ( month.value == todayDate.getMonth() +1 )&& day.value > todayDate.getDate()) ){
-                return false
+                document.querySelector(".result").innerHTML = "Date sup a la date actuelle"
         }else{
             if ( (month.value == 2 && day.value<= 29) 
                 || ( [1,3,5,7,8,10,12].includes(parseInt(month.value)) && day.value <= 31) 
                 || ( [4,6,9,11].includes(parseInt(month.value)) && day.value<= 30)) {
-                    return true
+                   calcule()
             }else{
-                return false;
+                document.querySelector(".result").innerHTML = "coeherence incorrecte"
             }
         }   
     }
@@ -49,10 +49,4 @@ function calcule() {
 
 
 
-document.querySelector("input[type='submit']").addEventListener("click" , ()=>{
-    if (verification()) {
-        calcule();
-    } else {
-        document.querySelector(".result").innerHTML = "erreur"
-    }
-});
+document.querySelector("input[type='submit']").addEventListener("click" , verification);
