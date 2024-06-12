@@ -27,6 +27,7 @@ function verification() {
 // on calcule le nombre d'annee, mois et jour qui nous separe de cette date 
 function calcule() {
     document.querySelector(".annee").innerHTML = todayDate.getFullYear() - year.value;
+
     if (month.value > todayDate.getMonth() + 1) {
         document.querySelector(".annee").innerHTML -= "1"
         document.querySelector(".mois").innerHTML = 13 +(todayDate.getMonth() - month.value  )
@@ -34,8 +35,13 @@ function calcule() {
         document.querySelector(".mois").innerHTML =  (todayDate.getMonth() + 1) - month.value 
     }
     if(day.value > todayDate.getDate()){
-        document.querySelector(".mois").innerHTML = parseInt(document.querySelector(".mois").innerHTML) + 1
-        document.querySelector(".jour").innerHTML = - (todayDate.getDate() - day.value);
+        if(parseInt(document.querySelector(".mois").innerHTML) != 0 ){
+            document.querySelector(".mois").innerHTML = parseInt(document.querySelector(".mois").innerHTML) - 1
+        }else{
+            document.querySelector(".annee").innerHTML -= "1"
+            document.querySelector(".mois").innerHTML = 12
+        }
+        document.querySelector(".jour").innerHTML = 30 + (todayDate.getDate() - day.value);
     }else{
         document.querySelector(".jour").innerHTML = todayDate.getDate() - day.value
     }
